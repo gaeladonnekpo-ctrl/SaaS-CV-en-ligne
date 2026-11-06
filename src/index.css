@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Preset C - Signal Brut (Default for Biotechnology & Precision Laboratory) */
+  --color-primary: #111111;
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --color-accent-glow: rgba(37, 99, 235, 0.25);
+  --color-bg: #F5F3EE;
+  --color-card: #FFFFFF;
+  --color-card-dark: #16181F;
+  --color-text-dark: #111111;
+  --color-text-muted: #52525B;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-dramatic: 'DM Serif Display', serif;
+  --font-data: 'Space Mono', monospace;
+}
+
+/* Theme presets definitions */
+[data-theme="preset-c"] {
+  --color-primary: #111111;
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
+  --color-accent-glow: rgba(37, 99, 235, 0.25);
+  --color-bg: #F5F3EE;
+  --color-card: #FFFFFF;
+  --color-card-dark: #16181F;
+  --color-text-dark: #111111;
+  --color-text-muted: #52525B;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --font-title: 'Space Grotesk', sans-serif;
+  --font-dramatic: 'DM Serif Display', serif;
+  --font-data: 'Space Mono', monospace;
+}
+
+[data-theme="preset-b"] {
+  --color-primary: #0F0F13;
+  --color-accent: #D4A843;
+  --color-accent-hover: #B88E30;
+  --color-accent-glow: rgba(212, 168, 67, 0.25);
+  --color-bg: #F5F3EE;
+  --color-card: #FFFFFF;
+  --color-card-dark: #1E1E26;
+  --color-text-dark: #0F0F13;
+  --color-text-muted: #646470;
+  --color-border: rgba(212, 168, 67, 0.15);
+  --font-title: 'Inter', sans-serif;
+  --font-dramatic: 'Playfair Display', serif;
+  --font-data: 'JetBrains Mono', monospace;
+}
+
+[data-theme="preset-a"] {
+  --color-primary: #1C1C1E;
+  --color-accent: #E8634A;
+  --color-accent-hover: #CF4E36;
+  --color-accent-glow: rgba(232, 99, 74, 0.25);
+  --color-bg: #FAFAFA;
+  --color-card: #FFFFFF;
+  --color-card-dark: #242426;
+  --color-text-dark: #1C1C1E;
+  --color-text-muted: #57575C;
+  --color-border: rgba(0, 0, 0, 0.07);
+  --font-title: 'Plus Jakarta Sans', sans-serif;
+  --font-dramatic: 'Cormorant Garamond', serif;
+  --font-data: 'IBM Plex Mono', monospace;
+}
+
+[data-theme="preset-d"] {
+  --color-primary: #0A0A14;
+  --color-accent: #7B61FF;
+  --color-accent-hover: #6345F5;
+  --color-accent-glow: rgba(123, 97, 255, 0.35);
+  --color-bg: #F0EFF4;
+  --color-card: #FFFFFF;
+  --color-card-dark: #141424;
+  --color-text-dark: #0A0A14;
+  --color-text-muted: #606075;
+  --color-border: rgba(123, 97, 255, 0.15);
+  --font-title: 'Sora', sans-serif;
+  --font-dramatic: 'Instrument Serif', serif;
+  --font-data: 'Fira Code', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-title);
+  color: var(--color-text-dark);
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+/* Global SVG Noise Overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+}
+
+/* Micro-Interactions */
+.btn-magnetic {
+  transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 0.2s ease;
+}
+.btn-magnetic:hover {
+  transform: scale(1.03);
+}
+.btn-magnetic:active {
+  transform: scale(0.98);
+}
+
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              color 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-1px);
+}
+
+.card-experience {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.card-experience:hover {
+  transform: scale(1.01);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+}
+
+/* Pulse animation for timeline dots */
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.8;
+  }
+}
+
+.dot-pulse {
+  animation: pulseDot 2.4s infinite ease-in-out;
+}
+
+/* Radial pulse for green online badge */
+@keyframes statusBeacon {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.online-beacon {
+  animation: statusBeacon 2s infinite;
+}
+
